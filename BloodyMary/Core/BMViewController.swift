@@ -14,10 +14,6 @@ import UIKit
 ///
 /// The `BMViewController` gives you access to a `rootView` which is the view properly casted.
 open class BMViewController<View: BMViewWithViewControllerAndViewModel & UIView>: UIViewController {
-  
-  /// A flag used to check whether or not the first activation of constraints took place or not.
-  /// This flag is needed since `viewWillLayoutSubviews` is called several times, but constriants should be added once.
-  private var didActivateConstraints = false
 
   /// The rootView associated with the `BMViewController`.
   public var rootView: View {

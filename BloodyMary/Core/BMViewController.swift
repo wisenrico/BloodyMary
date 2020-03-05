@@ -57,6 +57,7 @@ open class BMViewController<View: BMViewWithViewControllerAndViewModel & UIView>
     view.viewController = self
     view.configure()
     view.style()
+    view.layout()
     self.view = view
   }
 
@@ -68,15 +69,6 @@ open class BMViewController<View: BMViewWithViewControllerAndViewModel & UIView>
       self.rootView.viewModel = vm
     }
     self.setupInteractions()
-  }
-  
-  /// Called when view about to layout subviews.
-  open override func viewWillLayoutSubviews() {
-    guard !self.didActivateConstraints else {
-      return
-    }
-    self.rootView.layout()
-    self.didActivateConstraints = true
   }
 
   /// Called everytime the VM needs to be updated.
